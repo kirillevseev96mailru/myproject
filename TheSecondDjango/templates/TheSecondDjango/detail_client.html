@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title%} DetailClient {% endblock %}
+{% block content%}
+        <h2>Info about Client - {{ client.id }}</h2>
+        <h3>Name - {{ client.name }}</h3>
+        <h3>Email - {{ client.email }}</h3>
+        <h3>Phone_number - {{ client.phone_number }}</h3>
+        <h3>Address - {{ client.address }}</h3>
+{% endblock %}

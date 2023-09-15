@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title%} DetailOrder {% endblock %}
+{% block content%}
+        <h2>Info about Order - {{ order.id }}</h2>
+        <h3>Name_client - {{ order.name_client }}</h3>
+        <h3>Name_product - {{ order.name_product }}</h3>
+        <h3>Price - {{ order.price }}</h3>
+        <h3>Date - {{ order.date }}</h3>
+{% endblock %}

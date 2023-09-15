@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title%} Все заказы продуктов {% endblock %}
+{% block content%}
+    <h2>Customer</h2>
+    <h3>name - {{ client.name }}</h3>
+    <h3>email - {{ client.email }}</h3>
+    <h3>phone_number - {{ client.phone_number }}</h3>
+    <h3>address - {{ client.address }}</h3>
+    <h3>date - {{ client.date }}</h3>
+    <h3> List of orders </h3>
+    <ul>
+        {% for order, day in orders %}
+            {% if day <= 7 %}
+                <h1>В течении 7 дней</h1>
+                {% for product in order.name_product.all %}
+                    <li>{{ product.name }} - {{ product.description }} - {{ product.quantity }} - {{ order.price }}</li>
+                        {{ order.date }}
+                        {{ product.image }}
+                    <br><br>
+                {% endfor %}
+            {% elif day > 7 and day <= 30 %}
+                <h1>В течении 30 дней</h1>
+                {% for product in order.name_product.all %}
+                    <li>{{ product.name }} - {{ product.description }} - {{ product.quantity }} - {{ order.price }}</li>
+                        {{ order.date }}
+                        {{ product.image }}
+                    <br><br>
+                {% endfor %}
+            {% elif  day > 30 and day <= 365 %}
+                <h1>В течении 365 дней</h1>
+                {% for product in order.name_product.all %}
+                    <li>{{ product.name }} - {{ product.description }} - {{ product.quantity }} - {{ order.price }}</li>
+                        {{ order.date }}
+                        {{ product.image }}
+                    <br><br>
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endblock %}
